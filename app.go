@@ -1,13 +1,16 @@
 package main
 
+// to import my packages: full path (module name + directories name).
+
 import (
+	"example.com/bank/fileops"
 	"fmt"
 )
 
 const fileName = "balance.txt"
 
 func main() {
-	accountBalance, err := readFloatFromFile(fileName, 0)
+	accountBalance, err := fileops.readFloatFromFile(fileName, 0)
 
 	if err != nil {
 		fmt.Println("ERROR")
