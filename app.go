@@ -10,7 +10,7 @@ import (
 const fileName = "balance.txt"
 
 func main() {
-	accountBalance, err := fileops.readFloatFromFile(fileName, 0)
+	accountBalance, err := fileops.ReadFloatFromFile(fileName, 0)
 
 	if err != nil {
 		fmt.Println("ERROR")
@@ -43,7 +43,7 @@ func main() {
 			}
 
 			accountBalance += depositAmount
-			writeFloatToFile(accountBalance, fileName)
+			fileops.WriteFloatToFile(accountBalance, fileName)
 		case 3:
 			fmt.Print("Your withdraw: ")
 			var withdrawAmount float64
@@ -58,7 +58,7 @@ func main() {
 			}
 
 			accountBalance -= withdrawAmount
-			writeFloatToFile(accountBalance, fileName)
+			fileops.WriteFloatToFile(accountBalance, fileName)
 		case 4:
 			fmt.Println("Your balance:", accountBalance)
 		default:
