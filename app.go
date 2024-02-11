@@ -3,7 +3,8 @@ package main
 // to import my packages: full path (module name + directories name).
 
 import (
-	"example.com/bank/fileops"
+	// adding alias for packages
+	fops "example.com/bank/fileops"
 	"fmt"
 	"github.com/Pallinder/go-randomdata"
 )
@@ -11,7 +12,7 @@ import (
 const fileName = "balance.txt"
 
 func main() {
-	accountBalance, err := fileops.ReadFloatFromFile(fileName, 0)
+	accountBalance, err := fops.ReadFloatFromFile(fileName, 0)
 
 	if err != nil {
 		fmt.Println("ERROR")
@@ -45,7 +46,7 @@ func main() {
 			}
 
 			accountBalance += depositAmount
-			fileops.WriteFloatToFile(accountBalance, fileName)
+			fops.WriteFloatToFile(accountBalance, fileName)
 		case 3:
 			fmt.Print("Your withdraw: ")
 			var withdrawAmount float64
@@ -60,7 +61,7 @@ func main() {
 			}
 
 			accountBalance -= withdrawAmount
-			fileops.WriteFloatToFile(accountBalance, fileName)
+			fops.WriteFloatToFile(accountBalance, fileName)
 		case 4:
 			fmt.Println("Your balance:", accountBalance)
 		default:
