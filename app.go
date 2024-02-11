@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 	accountBalance := 1000.0
@@ -30,8 +33,10 @@ func main() {
 		fmt.Scan(&withdrawAmount)
 		accountBalance -= withdrawAmount
 		fmt.Println("Balance updated! New amount:", accountBalance)
+	} else if choice == 4 {
+		fmt.Println("Your balance:", accountBalance)
+		fmt.Println("Exited success!")
+		os.Exit(0)
 	}
-
-	fmt.Println("Your choice:", choice)
 
 }
