@@ -2,7 +2,14 @@ package main
 
 import (
 	"fmt"
+	"os"
 )
+
+func writeBalanceToFilte(balance float64) {
+	balanceText := fmt.Sprint(balance)
+	os.WriteFile("balance.txt", []byte(balanceText), 0644)
+	fmt.Println("Balance updated! New amount:", balanceText)
+}
 
 func main() {
 	accountBalance := 1000.0
@@ -35,7 +42,7 @@ func main() {
 			}
 
 			accountBalance += depositAmount
-			fmt.Println("Balance updated! New amount:", accountBalance)
+			writeBalanceToFilte(accountBalance)
 		case 3:
 			fmt.Print("Your withdraw: ")
 			var withdrawAmount float64
@@ -50,7 +57,7 @@ func main() {
 			}
 
 			accountBalance -= withdrawAmount
-			fmt.Println("Balance updated! New amount:", accountBalance)
+			writeBalanceToFilte(accountBalance)
 		case 4:
 			fmt.Println("Your balance:", accountBalance)
 		default:
