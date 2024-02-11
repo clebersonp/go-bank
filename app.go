@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 func main() {
 	accountBalance := 1000.0
 
-	for i := 0; i < 200; i++ {
-		fmt.Println("Welcome to Go Bank!")
+	fmt.Println("Welcome to Go Bank!")
+
+	// infinity loop
+	for {
 		fmt.Println("What do you want to do?")
 		fmt.Println("1. Check balance")
 		fmt.Println("2. Deposit money")
@@ -57,9 +58,8 @@ func main() {
 			fmt.Println("Your balance:", accountBalance)
 		} else if choice == 5 {
 			fmt.Println("Your balance:", accountBalance)
-			fmt.Println("Exited success!")
-			os.Exit(0)
+			break
 		}
 	}
-
+	fmt.Println("Thanks for choosing our bank")
 }
